@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300;
+}
+
+section {
+  @apply transition-colors duration-300;
+}
+
+*, *::before, *::after {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
