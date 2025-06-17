@@ -7,6 +7,10 @@ html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+section[id] {
+  scroll-margin-top: 7rem; 
+}
+
 body {
   @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300;
 }
@@ -17,4 +21,10 @@ section {
 
 *, *::before, *::after {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 12s linear infinite;
+  }
 }
