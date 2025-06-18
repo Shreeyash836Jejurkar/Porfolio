@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html, body {
   scroll-behavior: smooth;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 section[id] {
@@ -20,6 +21,7 @@ section {
 }
 
 *, *::before, *::after {
+  box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 

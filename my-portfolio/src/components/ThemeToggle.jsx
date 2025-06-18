@@ -1,34 +1,35 @@
-import { useEffect, useState } from 'react'
-import { FaMoon, FaSun } from 'react-icons/fa'
+import { useLayoutEffect, useState } from "react"
+import { FaMoon, FaSun } from "react-icons/fa"
 
 export default function ThemeToggle() {
-    const [dark, setDark] = useState(false)
+  const [dark, setDark] = useState(false)
 
-    useEffect(() => {
-        const saved = localStorage.getItem('theme')
-        if (saved === 'dark') setDark(true)
-    }, [])
+  useLayoutEffect(() => {
+    const saved = localStorage.getItem("theme")
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+    const enabled = saved === "dark" || (!saved && prefersDark)
+    document.documentElement.classList.toggle("dark", enabled)
+    setDark(enabled)
+  }, [])
 
-    useEffect(() => {
-        const root = window.document.documentElement
-        if (dark) {
-            root.classList.add('dark')
-            localStorage.setItem('theme', 'dark')
-        } else {
-            root.classList.remove('dark')
-            localStorage.setItem('theme', 'light')
-        }
-    }, [dark])
+  const toggleTheme = () => {
+    const newTheme = !dark
+    setDark(newTheme)
+    document.documentElement.classList.toggle("dark", newTheme)
+    localStorage.setItem("theme", newTheme ? "dark" : "light")
+  }
 
-    return (
-        <button
-            onClick={() => setDark(!dark)}
-            className="text-xl p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-            aria-label="Toggle dark mode"
-        >
-            <span className="transition-transform duration-300 ease-in-out">
-                {dark ? <FaSun className="text-yellow-400" /> : <FaMoon />}
-            </span>
-        </button>
-    )
+  return (
+    <button
+      onClick={toggleTheme}
+      className="text-xl p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 ease-out"
+      aria-label="Toggle dark mode"
+    >
+      {dark ? (
+        <FaSun className="text-yellow-400 transition-transform duration-200" />
+      ) : (
+        <FaMoon className="text-blue-500 transition-transform duration-200" />
+      )}
+    </button>
+  )
 }
