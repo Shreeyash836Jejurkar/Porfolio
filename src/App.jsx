@@ -16,7 +16,6 @@ import { SOCIAL_LINKS, THEME_CONFIG, LAYOUT_CONFIG, FOOTER_DATA } from "./consta
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(THEME_CONFIG.defaultDarkMode);
-  // const [showContact, setShowContact] = useState(false);
 
   useEffect(() => {
     const html = document.documentElement;
