@@ -32,20 +32,23 @@ export default function Sidebar() {
         ☰
       </button>
 
-      {/* Desktop Sidebar */}
-      <div className="hidden sm:flex fixed top-1/2 left-8 -translate-y-1/2 z-40">
-        <div className="bg-white dark:bg-backgroundDarkSecondary backdrop-blur-md border border-gray-200 dark:border-white/10 shadow-2xl rounded-2xl px-6 py-8 space-y-4 w-56">
+      {/* Desktop Top Bar */}
+      <div className="hidden sm:flex fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-backgroundDarkSecondary/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10 shadow-lg">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-center space-x-8">
           {sections.map((sec) => (
             <a
               key={sec}
               href={`#${sec}`}
-              className={`block relative pl-4 pr-3 py-2 text-base font-medium transition-all rounded-md ${
+              className={`relative px-4 py-2 text-base font-medium transition-all rounded-md capitalize ${
                 active === sec
-                  ? "text-accent bg-accent/10 dark:bg-accent/10 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent before:rounded"
+                  ? "text-accent bg-accent/10 dark:bg-accent/10"
                   : "text-gray-500 dark:text-gray-400 hover:text-accent"
               }`}
             >
               {sec}
+              {active === sec && (
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-accent rounded-full" />
+              )}
             </a>
           ))}
         </div>

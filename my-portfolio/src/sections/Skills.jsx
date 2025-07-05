@@ -12,22 +12,32 @@ import {
   SiGit,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
+import { SKILLS } from "../constants/portfolio";
 
 export default function Skills() {
-  const techSkills = [
-    { name: "Java", icon: <FaJava className="text-[#f89820]" /> },
-    { name: "JavaScript", icon: <SiJavascript className="text-[#f7df1e]" /> },
-    { name: "Kotlin", icon: <SiKotlin className="text-[#7f52ff]" /> },
-    { name: "React", icon: <SiReact className="text-[#61dafb]" /> },
-    { name: "React Native", icon: <SiReact className="text-[#61dafb]" /> },
-    { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" /> },
-    { name: "Electron", icon: <SiElectron className="text-[#47848f]" /> },
-    { name: "Flutter", icon: <SiFlutter className="text-[#02569b]" /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#38bdf8]" /> },
-    { name: "Redux", icon: <SiRedux className="text-[#764abc]" /> },
-    { name: "Firebase", icon: <SiFirebase className="text-[#ffca28]" /> },
-    { name: "Git", icon: <SiGit className="text-[#f05032]" /> },
-  ];
+  // Create icon mapping
+  const iconMap = {
+    FaJava: FaJava,
+    SiJavascript: SiJavascript,
+    SiKotlin: SiKotlin,
+    SiReact: SiReact,
+    SiNextdotjs: SiNextdotjs,
+    SiElectron: SiElectron,
+    SiFlutter: SiFlutter,
+    SiTailwindcss: SiTailwindcss,
+    SiRedux: SiRedux,
+    SiFirebase: SiFirebase,
+    SiGit: SiGit,
+  };
+
+  // Convert skills data to include actual icon components
+  const techSkills = SKILLS.map(skill => {
+    const IconComponent = iconMap[skill.icon];
+    return {
+      name: skill.name,
+      icon: <IconComponent className={`text-[${skill.color}]`} />
+    };
+  });
 
   return (
     <section id="skills" className="flex justify-center px-4">
