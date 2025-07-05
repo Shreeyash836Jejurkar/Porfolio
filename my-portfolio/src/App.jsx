@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { FiSun, FiMoon } from "react-icons/fi";
 
@@ -12,7 +12,7 @@ import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Blog from "./sections/Blog";
 import Package from "./sections/Package";
-import { SOCIAL_LINKS, THEME_CONFIG, LAYOUT_CONFIG } from "./constants/portfolio";
+import { SOCIAL_LINKS, THEME_CONFIG, LAYOUT_CONFIG, FOOTER_DATA } from "./constants/portfolio";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(THEME_CONFIG.defaultDarkMode);
@@ -63,6 +63,9 @@ export default function App() {
 
         {/* Right Social Bar */}
         <div className="hidden sm:flex fixed top-1/2 right-4 -translate-y-1/2 flex-col items-center space-y-5 z-40">
+          <a href={`mailto:${SOCIAL_LINKS.mail}`}>
+            <FaEnvelope className="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-accent hover:scale-110 transition" />
+          </a>
           <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
             <FaGithub className="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-accent hover:scale-110 transition" />
           </a>
@@ -75,6 +78,7 @@ export default function App() {
           <a href={SOCIAL_LINKS.leetcode} target="_blank" rel="noopener noreferrer">
             <SiLeetcode className="w-6 h-6 text-orange-500 hover:scale-110 transition" />
           </a>
+
         </div>
 
         {/* Main Content */}

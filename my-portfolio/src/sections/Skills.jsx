@@ -35,7 +35,7 @@ export default function Skills() {
     const IconComponent = iconMap[skill.icon];
     return {
       name: skill.name,
-      icon: <IconComponent className={`text-[${skill.color}]`} />
+      icon: <IconComponent style={{ color: skill.color }} />
     };
   });
 

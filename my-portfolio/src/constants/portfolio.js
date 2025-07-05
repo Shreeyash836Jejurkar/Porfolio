@@ -15,7 +15,8 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/Shreeyash836Jejurkar",
   linkedin: "https://www.linkedin.com/in/shreeyash-jejurkar-9999931a3/",
   medium: "https://medium.com/@shreeyash.dev",
-  leetcode: "https://leetcode.com/u/jejurkarshreeyash/"
+  leetcode: "https://leetcode.com/u/jejurkarshreeyash/",
+  mail: "mailto:jejurkarshreeyash@gmail.com"
 };
 
 // Navigation Sections
