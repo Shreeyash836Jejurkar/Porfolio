@@ -6,17 +6,19 @@ export default {
   ],
   theme: {
     extend: {
-      animation: {
-        blob: "blob 7s infinite",
+      colors: {
+        backgroundLight: "#ffffff",            // Pure white
+        backgroundDark: "#1e1e1e",             // Soft black (charcoal)
+        backgroundDarkSecondary: "#2b2b2b",    // Slight contrast for cards/sections
+        textLight: "#111827",                  // Slate-like rich dark text
+        textDark: "#f3f4f6",                   // Gray-100
+        accent: "#6366f1",       // indigo-500
+        accentHover: "#4f46e5",  // indigo-600
       },
-      keyframes: {
-        blob: {
-          "0%, 100%": { transform: "translate(0px, 0px) scale(1)" },
-          "33%": { transform: "translate(40px, -20px) scale(1.05)" },
-          "66%": { transform: "translate(-20px, 20px) scale(0.95)" },
-        },
-      },
-    },
+      backgroundImage: {
+        'light-gradient': 'linear-gradient(to bottom right, #ffffff, #f5f7ff)', // white → light indigo
+      }
+    }
   },
   plugins: [],
-}
+};

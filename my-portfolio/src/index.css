@@ -2,31 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}
+@layer base {
+  /* Prevent dragging on all elements */
+  * {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
 
-section[id] {
-  scroll-margin-top: 7rem; 
-}
+  /* Prevent dragging on specific interactive elements */
+  img, a, button, [role="button"], input, textarea, select {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: auto;
+  }
 
-body {
-  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300;
-}
+  /* Allow text selection for content areas */
+  p, h1, h2, h3, h4, h5, h6, span, div, li {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+  }
 
-section {
-  @apply transition-colors duration-300;
-}
+  /* Prevent image dragging specifically */
+  img {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -o-user-select: none !important;
+    user-select: none !important;
+    pointer-events: auto;
+  }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Prevent dragging on motion elements */
+  [data-framer-motion] {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+  }
 }
 
 @layer utilities {
-  .animate-spin-slow {
-    animation: spin 12s linear infinite;
+    @keyframes marquee {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
   }
-}
+
+  
