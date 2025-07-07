@@ -5,6 +5,7 @@ export const PERSONAL_INFO = {
   name: "Shreeyash Jejurkar",
   title: "React Native Developer | Masters student | Software Developer",
   location: "Sheffield, South Yorkshire, United Kingdom",
+  location_short: "Sheffield, UK",
   description: "I'm a mobile-first engineer with 2+ years of experience building intuitive, scalable apps. Passionate about bridging design and tech, I'm currently exploring AI to create smart, human-centered systems.",
   avatar: "/assets/shreeyash.jpeg",
   resume: "/resume.pdf"
