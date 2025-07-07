@@ -97,7 +97,7 @@ export default function App() {
                 <FaGithub className="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-accent hover:scale-110 transition" />
               </a>
               {githubHovered && (
-                <div className="hidden sm:block absolute right-full top-1/2 -translate-y-1/2 mr-3 z-50 bg-white dark:bg-backgroundDark p-4 rounded shadow-lg border border-gray-200 dark:border-gray-700 min-w-[700px] max-w-[1200px] overflow-x-auto">
+                <div className="hidden sm:block absolute right-full top-1/2 -translate-y-1/2 mr-3 z-50 bg-white dark:bg-backgroundDark p-4 rounded shadow-lg border border-gray-200 dark:border-gray-700 min-w-[300px] max-w-[90vw] overflow-x-auto">
                   <GitHubCalendar username="Shreeyash836Jejurkar" />
                 </div>
               )}
